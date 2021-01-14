@@ -8,6 +8,19 @@ public virtual class AbstractTriggerHandler implements TriggerHandler{
     public virtual Boolean isEnabled() {
         return true;
     }
+
+    private static Boolean run = true;
+
+    public static Boolean runOnce {
+        get {
+            if (run) {
+                run = false;
+                return true;
+            }
+
+            return run;
+        }
+    }
  
     public virtual void beforeInsert(List<SObject> newItems) {}
  
